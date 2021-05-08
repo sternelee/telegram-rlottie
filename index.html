@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>telegram-rlottie-gif</title>
+</head>
+<body>
+  <div class="tl_main_cards">
+    <div class="tl_main_card_cell">
+      <div class="tl_main_card_wrap">
+        <picture class="dev_page_tgsticker tl_main_card_animated js-tgsticker_image"><div></div><source type="application/x-tgsticker" srcset="/json/815df2ef527132dd23"><canvas width="160" height="160"></canvas></picture>
+        <h3 class="tl_main_card_header">Simple</h3>
+        <div class="tl_main_card_lead"><b>Telegram</b> is so simple you already know how to use it.</div>
+      </div>
+    </div>
+
+    <div class="tl_main_card_cell">
+      <div class="tl_main_card_wrap">
+        <picture class="dev_page_tgsticker tl_main_card_animated js-tgsticker_image"><div></div><source type="application/x-tgsticker" srcset="/json/bc9dec9fd8bd26e00e"><canvas width="160" height="160"></canvas></picture>
+        <h3 class="tl_main_card_header">Private</h3>
+        <div class="tl_main_card_lead"><b>Telegram</b> messages are heavily encrypted and can self-destruct.</div>
+      </div>
+    </div>
+
+    <div class="tl_main_card_cell">
+      <div class="tl_main_card_wrap">
+        <picture class="dev_page_tgsticker tl_main_card_animated js-tgsticker_image"><div></div><source type="application/x-tgsticker" srcset="/json/62085b07461f2d87e4"><canvas width="160" height="160"></canvas></picture>
+        <h3 class="tl_main_card_header">Synced</h3>
+        <div class="tl_main_card_lead"><b>Telegram</b> lets you access your chats from multiple devices.</div>
+      </div>
+    </div>
+
+    <div class="tl_main_card_cell">
+      <div class="tl_main_card_wrap">
+        <picture class="dev_page_tgsticker tl_main_card_animated js-tgsticker_image"><div></div><source type="application/x-tgsticker" srcset="/json/dcccb066a7b4fe44ee"><canvas width="160" height="160"></canvas></picture>
+        <h3 class="tl_main_card_header">Fast</h3>
+        <div class="tl_main_card_lead"><b>Telegram</b> delivers messages faster than any other application.</div>
+      </div>
+    </div>
+
+    <div class="tl_main_card_cell">
+      <div class="tl_main_card_wrap">
+        <picture class="dev_page_tgsticker tl_main_card_animated js-tgsticker_image"><div></div><source type="application/x-tgsticker" srcset="/json/b97780ca9da88b4f84"><canvas width="160" height="160"></canvas></picture>
+        <h3 class="tl_main_card_header">Powerful</h3>
+        <div class="tl_main_card_lead"><b>Telegram</b> has no limits on the size of your media and chats.</div>
+      </div>
+    </div>
+
+    <div class="tl_main_card_cell">
+      <div class="tl_main_card_wrap">
+        <picture class="dev_page_tgsticker tl_main_card_animated js-tgsticker_image"><div></div><source type="application/x-tgsticker" srcset="/json/8940838e7dddc787d8"><canvas width="160" height="160"></canvas></picture>
+        <h3 class="tl_main_card_header">Open</h3>
+        <div class="tl_main_card_lead"><b>Telegram</b> has an open <a href="https://core.telegram.org/api" one-link-mark="yes">API</a> and source code free for everyone.</div>
+      </div>
+    </div>
+  </div>
+  <script src="/tgsticker.js"></script>
+  <script>
+    console.log(RLottie)
+    function mainInitTgStickers(options) {
+      options = options || {};
+      if (!RLottie.isSupported) {
+        if (options.unsupportedURL) {
+          if (!getCookie('stel_notgs')) {
+            setCookie('stel_notgs', 1, 7);
+          }
+          location = options.unsupportedURL;
+        }
+        return false;
+      }
+      document.querySelectorAll('.js-tgsticker_image').forEach(function (imgEl) {
+        RLottie.init(imgEl, options);
+      });
+    }
+    mainInitTgStickers({"maxDeviceRatio":2,"cachingModulo":3,"unsupportedURL":"\/?notgs=1"});
+  </script>
+</body>
+</html>

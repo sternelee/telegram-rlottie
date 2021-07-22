@@ -1,3 +1,15 @@
+function t() {
+  var e = document.currentScript;
+  if (!e) {
+      var t = document.scripts;
+      e = t[t.length - 1]
+  }
+  return e
+}
+
+// 必须要放在最前面
+var currentScript = t()
+
 var RLottie = (function () {
   var rlottie = {}, apiInitStarted = false, apiInited = false, initCallbacks = [];
   var deviceRatio = window.devicePixelRatio || 1;
@@ -115,7 +127,7 @@ var RLottie = (function () {
         console.log(dT(), 'tgsticker init');
         apiInitStarted = true;
         var workersRemain = rlottie.WORKERS_LIMIT;
-        var firstRlottieWorker = rlottieWorkers[0] = new QueryableWorker('/tgsticker-worker.js');
+        var firstRlottieWorker = rlottieWorkers[0] = new QueryableWorker();
         firstRlottieWorker.addListener('ready', function () {
           console.log(dT(), 'worker #0 ready');
           firstRlottieWorker.addListener('frame', onFrame);
@@ -131,7 +143,7 @@ var RLottie = (function () {
           } else {
             for (var workerNum = 1; workerNum < rlottie.WORKERS_LIMIT; workerNum++) {
               (function(workerNum) {
-                var rlottieWorker = rlottieWorkers[workerNum] = new QueryableWorker('/tgsticker-worker.js');
+                var rlottieWorker = rlottieWorkers[workerNum] = new QueryableWorker();
                 rlottieWorker.addListener('ready', function () {
                   console.log(dT(), 'worker #' + workerNum + ' ready');
                   rlottieWorker.addListener('frame', onFrame);
@@ -357,9 +369,8 @@ var RLottie = (function () {
   return rlottie;
 }());
 
-
-
-function QueryableWorker(url, defaultListener, onError) {
+function QueryableWorker(defaultListener, onError) {
+  const url = currentScript.src.replace('tgsticker', 'tgsticker-worker')
   var instance = this;
   var worker = new Worker(url);
   var listeners = {};

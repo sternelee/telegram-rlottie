@@ -11,7 +11,7 @@
 
 1. 将 `dist` 下的资源放在项目的 `public` 等，几个文件要在同一个目录下
 2. 页面 `script` 加载 `tgsticker.min.js`
-3. 页面动画的标签为如下，其他 `srcset` 为 `pako` 压缩后的文件
+3. 页面动画的标签为如下，其他 `srcset` 为 `pako` 压缩后的文件, 参考 `index.js`
 
 ```html
 <picture class="js-tgsticker"><source type="application/x-tgsticker" srcset="/json/8940838e7dddc787d8"></picture>
